@@ -1,10 +1,19 @@
 Analysis
 1. Routes
     1.1. What are they and their purpose?
+        - Call to different functions based on the url path
     1.2. Where are they defined?
+        - They're defined in /routes/web.php
     1.3. How many are there?
+        - There are 4:
+            . on path /
+            . on path oldFilms/{year?}
+            . on path newFilms/{year?}
+            . on films/{year?}/{genre?}
     1.4. How do they group?
+        - Are grouped by Route::group(attributes ...) 
     1.5. Which prefix do they use?
+        - Are grouped by the prefix => filmout 
     1.6. Which parameters do they use?
 2. Middleware
     2.1. What are they and their purpose?
