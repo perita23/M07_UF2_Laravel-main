@@ -16,6 +16,14 @@
         "img_url": "https://pics.filmaffinity.com/El_club_de_los_cinco-192309838-large.jpg"
     },
     {
+        "name": "El Club de los Cinco",
+        "year": 1985,
+        "genre": "Comedia",
+        "country":"SPAIN",
+        "duration":"2",
+        "img_url": "https://pics.filmaffinity.com/El_club_de_los_cinco-192309838-large.jpg"
+    },
+    {
         "name": "Forrest Gump",
         "year": 1994,
         "genre": "Drama",
