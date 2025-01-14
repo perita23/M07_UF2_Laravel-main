@@ -87,6 +87,7 @@ class FilmController extends Controller
         $title = "Listado de todas las pelis";
         $films = FilmController::readFilms();
 
+
         if (isset($_GET["genre"])) {
             $genre = $_GET["genre"];
         }
@@ -96,7 +97,8 @@ class FilmController extends Controller
             return view('films.list', ["films" => $films, "title" => $title]);
         //list based on year or genre informed
         foreach ($films as $film) {
-            if ((!is_null($genre)) && $film['genre'] == $genre) {
+            if ((!is_null($genre)) && strtolower($film['genre'])  == strtolower($genre)) {
+
                 $title = "Listado de todas las pelis filtrado x año";
                 $films_filtered[] = $film;
             }
