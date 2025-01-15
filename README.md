@@ -57,10 +57,10 @@ Implementation
 
 
 3. adapt current function listFilms in FilmController to have listFilmsByYear and listFilmsByGenre for previous defined routes.
-    ->
+    ->DONE
 
 4. create a new route 'sortFilms' to list all films sorted by year descending, from newest to oldest.
-    ->
+    ->DONE
 
 5. create a new route 'countFilms' to return total number of films on a new view counter
     ->DONE
