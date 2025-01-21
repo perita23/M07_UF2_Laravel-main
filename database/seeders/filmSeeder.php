@@ -13,7 +13,7 @@ class filmSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table(('films'))->insert([
+        DB::table('films')->insert([
             [
                 'name' => 'La Rosa Púrpura del Cairo',
                 'year' => 1985,
