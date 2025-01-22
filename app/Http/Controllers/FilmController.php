@@ -64,6 +64,25 @@ class FilmController extends Controller
 
         return view('films.list', ["films" => $new_films, "title" => $title]);
     }
+    public function listAllFilms($year = null)
+    {
+        if (is_null($year))
+            $year = 2000;
+
+        $title = "Listado de Pelis Nuevas (Después de $year)";
+        $films = FilmController::readFilms();
+
+        $new_films = $films->filter(function ($film) use ($year) {
+            return $film['year'] >= $year;
+        });
+
+        // foreach ($films as $film) {
+        //     if ($film['year'] >= $year)
+        //         $new_films[] = $film;
+        // }
+
+        return view('films.list', ["films" => $new_films, "title" => $title]);
+    }
     /**
      * Lista TODAS las películas o filtra x año o categoría.
      */
