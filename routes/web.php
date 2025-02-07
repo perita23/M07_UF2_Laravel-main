@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\FilmController;
-use App\Http\Middleware\ValidateYear;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +27,10 @@ Route::middleware('year')->group(function() {
         Route::get('filmsByGenre/{genre?}',[FilmController::class, "listFilmsByGenre"])->name('filmsBygenre');
         Route::get('filmsSorted',[FilmController::class, "listSortedFilms"])->name('filmsSorted');
         Route::get('countFilms',[FilmController::class, "countFilms"])->name('countFilms');
+        Route::get('addFilm', function () {
+            return view('films.addFilm');
+        })->name('addFilmForm');
 
-
-        
+        Route::post('/addFilm',[FilmController::class, "addFilm"])->name("addFilm")->middleware('validate.url');
     });
 });

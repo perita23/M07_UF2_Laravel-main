@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\film;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class FilmController extends Controller
@@ -57,11 +58,6 @@ class FilmController extends Controller
             return $film['year'] >= $year;
         });
 
-        // foreach ($films as $film) {
-        //     if ($film['year'] >= $year)
-        //         $new_films[] = $film;
-        // }
-
         return view('films.list', ["films" => $new_films, "title" => $title]);
     }
     public function listAllFilms($year = null)
@@ -75,11 +71,6 @@ class FilmController extends Controller
         $new_films = $films->filter(function ($film) use ($year) {
             return $film['year'] >= $year;
         });
-
-        // foreach ($films as $film) {
-        //     if ($film['year'] >= $year)
-        //         $new_films[] = $film;
-        // }
 
         return view('films.list', ["films" => $new_films, "title" => $title]);
     }
@@ -103,12 +94,6 @@ class FilmController extends Controller
             return $films['year'] == $year;
         });
 
-        // foreach ($films as $film) {
-        //     if ((!is_null($year)) && $film['year'] == $year) {
-        //         $title = "Listado de todas las pelis filtrado x año";
-        //         $films_filtered[] = $film;
-        //     }
-        // }
         return view("films.list", ["films" => $films_filtered, "title" => $title]);
     }
 
@@ -124,22 +109,13 @@ class FilmController extends Controller
             $genre = $_GET["genre"];
         }
 
-        //if year and genre are null
         if (is_null($genre))
             return view('films.list', ["films" => $films, "title" => $title]);
-        //list based on year or genre informed
 
         $films_filtered= $films->filter(function ($films) use ($genre){
             return strtolower($films->genre) == strtolower($genre);
         });
 
-        // foreach ($films as $film) {
-        //     if ((!is_null($genre)) && strtolower($film['genre']) == strtolower($genre)) {
-
-        //         $title = "Listado de todas las pelis filtrado x año";
-        //         $films_filtered[] = $film;
-        //     }
-        // }
         return view("films.list", ["films" => $films_filtered, "title" => $title]);
     }
 
@@ -155,5 +131,26 @@ class FilmController extends Controller
         $films = FilmController::readFilms();
         $numFilms = count($films);
         return view('films.count', ["count" => $numFilms]);
+    }
+
+    public function addFilm(Request $request){
+
+        $request->validate([
+            'name' => 'required|string',
+            'year' => 'required|integer',
+            'genre' => 'required|string',
+            'country' => 'required|string',
+            'duration' => 'required|integer',
+            'img_url' => 'required',
+        ]);
+
+        Film::create([
+            'name' => $request->name,
+            'year' => $request->year,
+            'genre' => $request->genre,
+            'country' => $request->country,
+            'duration' => $request->duration,
+            'img_url' => $request->img_url,
+        ]);
     }
 }

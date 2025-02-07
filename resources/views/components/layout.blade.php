@@ -48,7 +48,13 @@
                     </ul>
                 </div>
             </div>
+            <div>
+                <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;" href="/filmout/addFilm">
+                    Añade una pelicula
+                </a>
+            </div>
         </nav>
+
     </header>
 
     <section class="bg-dark text-white" style="min-height: 75vh">
