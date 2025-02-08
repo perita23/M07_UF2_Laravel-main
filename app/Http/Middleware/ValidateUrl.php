@@ -18,10 +18,8 @@ class ValidateUrl
 
         $url = $request->input('img_url');
 
-        if (!filter_var($url, FILTER_VALIDATE_URL)){
-            return response()->json([
-                "error" => 'La URL no es valida'
-            ],400);
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            return response()->view('films.addFilm', ["exist" => false, "invalidUrl" => true]);
         }
 
         return $next($request);

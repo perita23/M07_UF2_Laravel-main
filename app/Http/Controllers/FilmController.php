@@ -132,8 +132,13 @@ class FilmController extends Controller
         $numFilms = count($films);
         return view('films.count', ["count" => $numFilms]);
     }
-
-    public function addFilm(Request $request){
+    protected function isFilm($name){
+        if(Film::where("name", "=", $name)->exists()){
+            return true;
+        }
+        return false;
+    }
+    public function createFilm(Request $request){
 
         $request->validate([
             'name' => 'required|string',
@@ -144,6 +149,10 @@ class FilmController extends Controller
             'img_url' => 'required',
         ]);
 
+        if($this->isFilm($request["name"])){
+            return view("films.addFilm",["exist" => true,"invalidUrl"=>false]);
+        }
+
         Film::create([
             'name' => $request->name,
             'year' => $request->year,
@@ -152,5 +161,6 @@ class FilmController extends Controller
             'duration' => $request->duration,
             'img_url' => $request->img_url,
         ]);
+        return view('welcome');
     }
 }

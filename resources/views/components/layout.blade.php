@@ -19,7 +19,8 @@
     <header style="height: fit-content;" class="border-bottom border-white">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">StuFilms</a>
+                <img src="{{asset("images/logo (2).png")}}" alt="Logo del cine" style="height: 5vh">
+                <a class="navbar-brand" href="/">StuFilms</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -28,22 +29,22 @@
                 <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/oldFilms>Pelis antiguas</a>
+                            <a class="nav-link" href="{{route('oldFilms')}}">Pelis antiguas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/newFilms>Pelis nuevas</a>
+                            <a class="nav-link" href="{{route('newFilms')}}">Pelis nuevas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/filmsByYear>Pelis por año</a>
+                            <a class="nav-link" href="{{route('filmsByYear')}}">Pelis por año</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/filmsByGenre>Pelis por genero</a>
+                            <a class="nav-link" href="{{route('filmsBygenre')}}">Pelis por genero</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/filmsSorted>Pelis ordenadas por año</a>
+                            <a class="nav-link" href="{{route('filmsSorted')}}">Pelis ordenadas por año</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=/filmout/countFilms>Contar numero de peliculas</a>
+                            <a class="nav-link" href="{{route('countFilms')}}">Contar numero de peliculas</a>
                         </li>
                     </ul>
                 </div>
