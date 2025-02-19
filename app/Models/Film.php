@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class film extends Model
 {
@@ -18,6 +19,10 @@ class film extends Model
         'duration',
         'img_url'
     ];
+
+    public function actors(): BelongsToMany{
+        return $this->belongsToMany(actor::class);
+    }
 
 
 
