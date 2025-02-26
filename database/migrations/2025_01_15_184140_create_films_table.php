@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('country', 30);
             $table->integer('duration');
             $table->string('img_url');
+            
         });
     }
 
