@@ -21,7 +21,8 @@ class ActorSeeder extends Seeder
                 'surname' => fake()->firstName(),
                 'birthdate' => fake()->date(),
                 'country' => fake()->country(),
-                'img_url' => fake()->imageUrl()
+                'img_url' => fake()->imageUrl(),
+                'alias' => fake()->name()
             ]);
         }
 
