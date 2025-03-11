@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div>
-                <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;" href="/filmout/addFilm">
+                <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;" href="{{route('addFilmForm')}}">
                     Añade una pelicula
                 </a>
             </div>

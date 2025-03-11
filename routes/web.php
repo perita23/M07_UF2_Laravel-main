@@ -28,10 +28,11 @@ Route::middleware('year')->group(function () {
         Route::get('filmsByGenre/{genre?}', [FilmController::class, "listFilmsByGenre"])->name('filmsBygenre');
         Route::get('filmsSorted', [FilmController::class, "listSortedFilms"])->name('filmsSorted');
         Route::get('countFilms', [FilmController::class, "countFilms"])->name('countFilms');
+    });
+    Route::group(['prefix' => 'filmin'], function () {
+        Route::post('/createFilm', [FilmController::class, "createFilm"])->name("createFilm")->middleware('validate.url');
         Route::get('addFilm', function () {
             return view('films.addFilm', ["exist" => false, "invalidUrl" => false]);
         })->name('addFilmForm');
-
-        Route::post('/createFilm', [FilmController::class, "createFilm"])->name("createFilm")->middleware('validate.url');
     });
 });
