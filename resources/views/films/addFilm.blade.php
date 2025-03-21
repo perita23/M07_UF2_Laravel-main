@@ -7,6 +7,7 @@
                 <h2 class="text-center mb-4">Añadir Película</h2>
                 <form action="{{route('createFilm')}}" method="POST">
                     @csrf
+                    @method('POST')
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="text" class="form-control bg-dark text-light border-0" id="name" name="name"

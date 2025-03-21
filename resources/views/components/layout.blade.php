@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Add Bootstrap CSS link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://unpkg.com/@webpixels/css@1.2.6/dist/index.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,11 +48,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('countFilms')}}">Contar numero de peliculas</a>
                         </li>
+                        
+                        <div class="dropdown nav-item">
+                            <a class="nav-link dropdown-toggle bg-dark text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actores
+                            </a>
+                            <ul class="dropdown-menu nav-item text-white" aria-labelledby="dropdownMenuLink"
+                                style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.5);">
+                                <li><a class="dropdown-item text-white" href="{{route('countActors')}}">Contar actores</a></li>
+                                <li><a class="dropdown-item text-white" href="{{route('listActor')}}">Ver actores</a></li>
+                            </ul>
+                        </div>
+
+
                     </ul>
                 </div>
+
             </div>
             <div>
-                <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;" href="{{route('addFilmForm')}}">
+                <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;"
+                    href="{{route('addFilmForm')}}">
                     Añade una pelicula
                 </a>
             </div>
