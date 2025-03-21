@@ -65,11 +65,17 @@
                 </div>
 
             </div>
-            <div>
+            <div class="d-flex gap-4">
                 <a class="text-light btn btn-primary btn-sm" style="height: 100%; width: 100%;"
                     href="{{route('addFilmForm')}}">
-                    Añade una pelicula
+                    Añadir pelicula
                 </a>
+                <form method="POST" action="{{ route('logout') }}" class="d-flex align-items-center">
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center" style="width: fit-content;">
+                        {{ __('Log Out') }}
+                    </button>
+                </form>
             </div>
         </nav>
 
