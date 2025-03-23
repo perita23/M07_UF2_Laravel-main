@@ -67,17 +67,18 @@ class ActorController extends Controller
     public function deleteActor($actorId = null)
     {
         if (!Actor::find($actorId)) {
-            return response()->json(null, 404);
+            return response()->json(false, 404);
         }
 
         try {
             Actor::destroy($actorId);
-            $status = Actor::findOrFail($actorId) ? 500 : 200;
+            $deleted = !Actor::find($actorId);
+            $status = $deleted ? 200 : 500;
         } catch (Exception $e) {
-            return response()->json(null, 500);
+            return response()->json(false, 500);
         }
 
-        return response()->json(null, $status);
+        return response()->json(true, $status);
     }
 
 
