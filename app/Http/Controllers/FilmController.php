@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\film;
+use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -162,5 +164,10 @@ class FilmController extends Controller
             'img_url' => $request->img_url,
         ]);
         return view('welcome');
+    }
+
+    public function index(){
+        $films = FilmController::readFilms();
+        return Json::encode($films);
     }
 }
